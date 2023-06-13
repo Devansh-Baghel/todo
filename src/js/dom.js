@@ -2,7 +2,8 @@ import { projects } from "../index";
 
 const todoContainer = document.querySelector("#todo-container");
 const projectsList = document.querySelector("#projects-list");
-
+const heading = document.querySelector("#heading");
+let currentProject = "default";
 
 const DOM = {
 	displayTodo: () => {
@@ -35,10 +36,14 @@ const DOM = {
       projectsList.appendChild(newProject);
 
       newProject.innerText = item;
+
+      newProject.addEventListener("click", () => {
+        currentProject = item;
+        heading.innerText = item;
+      })
     }
   }
   
-
 }
 
 export { DOM };

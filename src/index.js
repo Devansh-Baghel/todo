@@ -16,12 +16,13 @@ let projects = {
   ]
 }
 
-const addTodo = (e) => {
+const addTodo = (e, project) => {
+  project = "default";
   e.preventDefault();
 	// if (todoInput.value === "") return;
 	let title = todoInput.value;
 	let priority = todoPriority.value;
-	projects.default.push({title, priority})
+	projects[project].push({title, priority})
 	console.log(projects);
 	DOM.displayTodo();
 }
@@ -40,6 +41,7 @@ const addProject = (e) => {
 }
 
 DOM.displayTodo();
+DOM.displayProjects();
 todoForm.addEventListener('submit', addTodo);
 projectsForm.addEventListener("submit", addProject);
 
