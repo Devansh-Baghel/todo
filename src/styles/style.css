@@ -13,6 +13,13 @@ body {
   background-color: #101115;
 }
 
+.projects-container{
+  width: 20vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+}
+
 .container{
   margin: 2rem auto;
   width: 90%;
