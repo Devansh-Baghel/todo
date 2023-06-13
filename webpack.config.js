@@ -26,7 +26,7 @@ module.exports = {
 	module: {
 		rules: [
 		{
-      test: /\.(sass|less|css)$/,
+			test: /\.(scss|css)$/,
 			use: ['style-loader', 'css-loader', 'sass-loader'],
 		},
 		{
@@ -47,7 +47,7 @@ module.exports = {
 	},
 	plugins: [
 		new HtmlWebpackPlugin({
-			title: ' HOME | Restaurant ',
+			title: ' HOME ',
 			filename: 'index.html',
 			template: 'src/template.html',
 		}),

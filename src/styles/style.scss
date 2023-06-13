@@ -28,12 +28,6 @@ body {
   flex-direction: column;
 }
 
-
-input{
-  width: 90%;
-  max-width: 630px;
-}
-
 .input-container{
   display: flex;
   align-items: center;
@@ -42,4 +36,16 @@ input{
 
 .input-container button{
   font-size: 30px;
+}
+
+
+.todo-input-container{
+  position: fixed;
+  bottom: 50px;
+  width: max(700px, 90%);
+
+  input{
+    width: min(500px, 90%);
+  }
+
 }
