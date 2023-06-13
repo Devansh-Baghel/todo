@@ -1,6 +1,7 @@
 import { projects } from "../index";
 
 const todoContainer = document.querySelector("#todo-container");
+const projectsList = document.querySelector("#projects-list");
 
 
 const DOM = {
@@ -25,7 +26,19 @@ const DOM = {
       newLabel.innerText = item.title;
     }
 
-	}
+	},
+  displayProjects: () => {
+    projectsList.innerText = "";
+    for(let item in projects){
+      const newProject = document.createElement("p");
+      newProject.classList.add("drac-box" ,"drac-card", "drac-bg-purple", "drac-my-sm", "drac-p-sm");
+      projectsList.appendChild(newProject);
+
+      newProject.innerText = item;
+    }
+  }
+  
+
 }
 
 export { DOM };

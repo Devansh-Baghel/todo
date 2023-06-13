@@ -7,6 +7,9 @@ const todoForm = document.querySelector("#todo-form");
 const todoInput = document.querySelector("#todo-input");
 const todoPriority = document.querySelector("#todo-priority");
 
+const projectsForm = document.querySelector("#projects-form");
+const projectsInput = document.querySelector("#projects-input");
+
 let projects = {
 	default: [
     {title: "Welcome", priority: 2}
@@ -23,7 +26,22 @@ const addTodo = (e) => {
 	DOM.displayTodo();
 }
 
+const addProject = (e) => {
+  e.preventDefault();
+
+  let title = projectsInput.value;
+
+  for (let item in projects){
+    if (title === item) return;
+  }
+  
+  projects[title] = [];
+  DOM.displayProjects();
+}
+
 DOM.displayTodo();
 todoForm.addEventListener('submit', addTodo);
+projectsForm.addEventListener("submit", addProject);
+
 
 export { projects };
