@@ -8,7 +8,7 @@ const projectsForm = document.querySelector("#projects-form");
 const projectsInput = document.querySelector("#projects-input");
 
 let projects = {
-	default: [
+	"Welcome!": [
     {title: "Welcome", priority: 2}
   ]
 }

@@ -3,7 +3,9 @@ import { projects } from "./index";
 const todoContainer = document.querySelector("#todo-container");
 const projectsList = document.querySelector("#projects-list");
 const heading = document.querySelector("#heading");
-let currentProject = "default";
+
+// Sets the current project to be the default project which is "Welcome!"
+let currentProject = "Welcome!";
 
 const DOM = {
 	displayTodo: (project) => {
@@ -37,12 +39,25 @@ const DOM = {
       projectsList.appendChild(newProject);
 
       newProject.innerText = item;
+      newProject.id = "project-item";
 
       newProject.addEventListener("click", () => {
         currentProject = item;
         heading.innerText = item;
         DOM.displayTodo(currentProject);
-      })
+        
+
+        document.querySelectorAll("#project-item").forEach(project => {
+          if (project.innerText === item){
+            project.classList.remove("drac-bg-purple");
+            project.classList.add("drac-bg-cyan-green");
+          } else {
+            project.classList.remove("drac-bg-cyan-green");
+            project.classList.add("drac-bg-purple");
+          }
+        })
+        })
+
     }
   }
   
