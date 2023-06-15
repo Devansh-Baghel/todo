@@ -1,4 +1,4 @@
-import { DOM } from "./dom";
+import { DOM, currentProject } from "./dom";
 
 const todoForm = document.querySelector("#todo-form");
 const todoInput = document.querySelector("#todo-input");
@@ -13,14 +13,13 @@ let projects = {
   ]
 }
 
-const addTodo = (e, project) => {
-  project = "default";
+const addTodo = (e) => {
   e.preventDefault();
 	let title = todoInput.value;
 	let priority = todoPriority.value;
-	projects[project].push({title, priority})
+	projects[currentProject].push({title, priority})
 	console.log(projects);
-	DOM.displayTodo();
+	DOM.displayTodo(currentProject);
 }
 
 const addProject = (e) => {
@@ -36,11 +35,10 @@ const addProject = (e) => {
   DOM.displayProjects();
 }
 
-DOM.displayTodo();
+DOM.displayTodo(currentProject);
 DOM.displayProjects();
 todoForm.addEventListener('submit', addTodo);
 projectsForm.addEventListener("submit", addProject);
 
-console.log("THIS IS LOADING")
 
 export { projects };

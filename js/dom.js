@@ -6,10 +6,11 @@ const heading = document.querySelector("#heading");
 let currentProject = "default";
 
 const DOM = {
-	displayTodo: () => {
+	displayTodo: (project) => {
     todoContainer.innerText = "";
 
-    for(let item of projects.default){
+    for(let item of projects[project]){
+      console.log(item)
       const newDiv = document.createElement("div");
       const newInput = document.createElement("input");
       const newLabel = document.createElement("label");
@@ -40,10 +41,11 @@ const DOM = {
       newProject.addEventListener("click", () => {
         currentProject = item;
         heading.innerText = item;
+        DOM.displayTodo(currentProject);
       })
     }
   }
   
 }
 
-export { DOM };
+export { DOM , currentProject};
