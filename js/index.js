@@ -20,6 +20,7 @@ const addTodo = (e) => {
 	projects[currentProject].push({title, priority})
 	console.log(projects);
 	DOM.displayTodo(currentProject);
+  todoInput.value = "";
 }
 
 const addProject = (e) => {
@@ -33,6 +34,7 @@ const addProject = (e) => {
   
   projects[title] = [];
   DOM.displayProjects();
+  projectsInput.value = "";
 }
 
 DOM.displayTodo(currentProject);
