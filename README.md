@@ -18,7 +18,7 @@ cd todo
 ```bash
 npm install
 ```
-## Development (Port 3000)
+## Development
 ```bash
 npm run dev
 ```
