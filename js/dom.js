@@ -12,7 +12,7 @@ const DOM = {
     todoContainer.innerText = "";
 
     for(let item of projects[project]){
-      console.log(item)
+      // console.log(item)
       const newDiv = document.createElement("div");
       const newInput = document.createElement("input");
       const newLabel = document.createElement("label");
@@ -28,6 +28,8 @@ const DOM = {
       newInput.id = item.title;
       newLabel.for = item.title;
       newLabel.innerText = item.title;
+
+      DOM.addPriority(item.priority, newDiv);
     }
 
 	},
@@ -59,6 +61,26 @@ const DOM = {
         })
 
     }
+  },
+
+  addPriority(priorityNumber, container){
+    const outerSpan = document.createElement("span");
+    const innerSpan = document.createElement("span");
+    outerSpan.classList.add(
+      "drac-badge",
+      "drac-bg-cyan-transparent",
+      "drac-badge-subtle",
+      "drac-text-cyan"
+    )
+
+    innerSpan.classList.add(
+      "drac-text-cyan"
+    )
+    
+    container.appendChild(outerSpan);
+    outerSpan.appendChild(innerSpan); 
+    innerSpan.innerText = `P ${priorityNumber}`;
+
   }
   
 }

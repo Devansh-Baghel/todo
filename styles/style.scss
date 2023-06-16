@@ -59,6 +59,20 @@ body{
   display: none;
 }
 
+.todo-container > div {
+  display: grid;
+  grid-template-columns: .1fr 5fr 1fr;
+  align-items: center;
+
+  > span{
+    height: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+  }
+}
+
 
 @media (max-width: 1000px) {
 
