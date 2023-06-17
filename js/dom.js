@@ -1,4 +1,5 @@
 import { projects } from "./index";
+import deleteImg from "../images/delete_FILL0_wght400_GRAD0_opsz40.svg"
 
 const todoContainer = document.querySelector("#todo-container");
 const projectsList = document.querySelector("#projects-list");
@@ -35,6 +36,7 @@ const DOM = {
       newLabel.innerText = item.title;
 
       DOM.addPriority(item.priority, newDiv);
+      DOM.addDeleteButton(newDiv);
     }
   },
   displayProjects: () => {
@@ -72,10 +74,9 @@ const DOM = {
   },
 
   addPriority(priorityNumber, container) {
-    if (priorityNumber === "default") return;
     const outerSpan = document.createElement("span");
     const innerSpan = document.createElement("span");
-    outerSpan.classList.add("drac-badge", "drac-text-white");
+    outerSpan.classList.add("drac-badge");
 
     if (priorityNumber === "1") {
       outerSpan.classList.add("drac-bg-red");
@@ -86,16 +87,31 @@ const DOM = {
     } else if (priorityNumber === "3") {
       outerSpan.classList.add("drac-bg-yellow");
       innerSpan.classList.add("drac-text-purple");
-    } else {
-      outerSpan.classList.add("drac-bg-cyan");
+    } else if (priorityNumber == "default") {
+      outerSpan.classList.add("drac-bg-purple");
       innerSpan.classList.add("drac-text-purple");
     }
 
+
+    else {
+      outerSpan.classList.add("drac-bg-cyan");
+      innerSpan.classList.add("drac-text-purple");
+    }
 
     container.appendChild(outerSpan);
     outerSpan.appendChild(innerSpan);
     innerSpan.innerText = `P ${priorityNumber}`;
   },
+
+  addDeleteButton(container){
+    const deleteImage = document.createElement("img");
+    deleteImage.src = deleteImg;
+    container.appendChild(deleteImage);
+
+    deleteImage.addEventListener("click", () => {
+      todoContainer.removeChild(container);
+    })
+  }
 };
 
 export { DOM, currentProject };
