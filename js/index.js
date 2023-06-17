@@ -8,18 +8,18 @@ const projectsForm = document.querySelector("#projects-form");
 const projectsInput = document.querySelector("#projects-input");
 
 let projects = {
-	"Welcome!": [
-    {title: "Welcome", priority: 2}
+  "Welcome!": [
+    { title: "Welcome", priority: "3" }
   ]
 }
 
 const addTodo = (e) => {
   e.preventDefault();
-	let title = todoInput.value;
-	let priority = todoPriority.value;
-	projects[currentProject].push({title, priority})
-	console.log(projects);
-	DOM.displayTodo(currentProject);
+  let title = todoInput.value;
+  let priority = todoPriority.value;
+  projects[currentProject].push({ title, priority })
+  console.log(projects);
+  DOM.displayTodo(currentProject);
   todoInput.value = "";
 }
 
@@ -28,14 +28,15 @@ const addProject = (e) => {
 
   let title = projectsInput.value;
 
-  for (let item in projects){
+  for (let item in projects) {
     if (title === item) return;
   }
-  
+
   projects[title] = [];
   DOM.displayProjects();
   projectsInput.value = "";
 }
+
 
 DOM.displayTodo(currentProject);
 DOM.displayProjects();

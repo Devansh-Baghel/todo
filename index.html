@@ -1,79 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Todo App</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo App</title>
 
-  <link rel="stylesheet" href="node_modules/dracula-ui/styles/dracula-ui.css" />
-  <link rel="stylesheet" type="" href="styles/style.scss">
-	<script type="module" src="./js/index.js" defer></script>
-	
-</head>
-<body class="drac-text drac-bg-black-secondary">
-  <div class="error-message drac-bg-black">
-    <h1 class="drac-heading drac-heading-2xl drac-text-purple-cyan">This website is not yet ready for tablets and phones</h1>
-  </div>
-	<div class="projects-container  drac-box drac-bg-black drac-p-md">
-		<h1 class="drac-heading drac-heading-xl drac-text-purple-cyan drac-mb-lg" >Projects</h1>
-
-		<form class="input-container" id="projects-form">
-			<input
-				placeholder="New Project?"
-				class="drac-input drac-input-purple drac-text-white drac-mt-md drac-p-md"
-        id="projects-input"
-        required
-			/>
-			<button class="drac-btn drac-bg-purple drac-mt-md" type="submit">&crarr;</button>
-		</form>
-		
-    <div class="projects-list" id="projects-list">
-      <p class="drac-box drac-card drac-bg-purple drac-my-sm drac-p-sm">Welcome Project</p>
+    <link
+      rel="stylesheet"
+      href="node_modules/dracula-ui/styles/dracula-ui.css"
+    />
+    <link rel="stylesheet" type="" href="styles/style.scss" />
+    <script type="module" src="./js/index.js" defer></script>
+  </head>
+  <body class="drac-text drac-bg-black-secondary">
+    <div class="error-message drac-bg-black">
+      <h1 class="drac-heading drac-heading-2xl drac-text-purple-cyan">
+        This website is not yet ready for tablets and phones
+      </h1>
     </div>
-	</div>
-	<div class="container">
-		<h1 class="drac-heading drac-heading-2xl drac-text-cyan-green drac-mb-md" id="heading">Hello There!</h1>
+    <div class="projects-container drac-box drac-bg-black drac-p-md">
+      <h1 class="drac-heading drac-heading-xl drac-text-purple-cyan drac-mb-lg">
+        Projects
+      </h1>
 
-		<div class="todo-container" id="todo-container">
-			<div class="drac-box drac-card drac-bg-purple drac-p-sm">
-				<input
-				  type="checkbox"
-				  name="normal"
-				  id="normal"
-				  class="drac-checkbox drac-checkbox-green"
-				  checked=""
-				/><label for="normal" class="drac-text drac-text-white"
-				  >Enjoys the light</label
-				>
-			  </div>
+      <form class="input-container" id="projects-form">
+        <input
+          placeholder="New Project?"
+          class="drac-input drac-input-purple drac-text-white drac-mt-md drac-p-md"
+          id="projects-input"
+          required
+        />
+        <button class="drac-btn drac-bg-purple drac-mt-md" type="submit">
+          &crarr;
+        </button>
+      </form>
 
-		</div>
+      <div class="projects-list" id="projects-list">
+        <p class="drac-box drac-card drac-bg-purple drac-my-sm drac-p-sm">
+          Welcome Project
+        </p>
+      </div>
+    </div>
+    <div class="container">
+      <h1
+        class="drac-heading drac-heading-2xl drac-text-cyan-green drac-mb-md"
+        id="heading"
+      >
+        Hello There!
+      </h1>
 
-		<form class="input-container todo-input-container" id="todo-form">
-			<input
-				placeholder="Add a task!"
-				class="drac-input drac-input-purple drac-text-white drac-p-md drac-bg-black"
-				required
-				id="todo-input"
-			/>
-			<div style="position: relative">
-				<select class="drac-select drac-select-purple drac-bg-black" id="todo-priority">
-				  <option value="4" disabled="" selected="">Priority</option>
-				  <option value="4">4</option>
-				  <option value="3">3</option>
-				  <option value="2">2</option>
-				  <option value="1">1</option>
-				</select>
-				<div class="drac-select-arrow drac-text-purple">
-				  <svg viewBox="0 0 24 24" focusable="false" role="presentation" aria-hidden="true">
-					<path fill="currentColor" d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"></path>
-				  </svg>
-				</div>
-			</div>
-			<button class="drac-btn drac-bg-purple" id="todo-submit" type="submit">&crarr;</button>
-		</form>
+      <div class="todo-container" id="todo-container">
+        <div class="drac-box drac-card drac-bg-purple drac-p-sm">
+          <input
+            type="checkbox"
+            name="normal"
+            id="normal"
+            class="drac-checkbox drac-checkbox-green"
+            checked=""
+          /><label for="normal" class="drac-text drac-text-white"
+            >Enjoys the light</label
+          >
+        </div>
+      </div>
 
-	</div>
-</body>
+      <form class="input-container todo-input-container" id="todo-form">
+        <input
+          placeholder="Add a task!"
+          class="drac-input drac-input-purple drac-text-white drac-p-md drac-bg-black"
+          required
+          id="todo-input"
+        />
+        <div style="position: relative">
+          <select
+            class="drac-select drac-select-purple drac-bg-black"
+            id="todo-priority"
+          >
+            <option value="default" disabled="" selected="">Priority</option>
+            <option value="4">4</option>
+            <option value="3">3</option>
+            <option value="2">2</option>
+            <option value="1">1</option>
+            <option value="default">None</option>
+          </select>
+          <div class="drac-select-arrow drac-text-purple">
+            <svg
+              viewBox="0 0 24 24"
+              focusable="false"
+              role="presentation"
+              aria-hidden="true"
+            >
+              <path
+                fill="currentColor"
+                d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+              ></path>
+            </svg>
+          </div>
+        </div>
+        <button class="drac-btn drac-bg-purple" id="todo-submit" type="submit">
+          &crarr;
+        </button>
+      </form>
+    </div>
+  </body>
 </html>

@@ -8,17 +8,22 @@ const heading = document.querySelector("#heading");
 let currentProject = "Welcome!";
 
 const DOM = {
-	displayTodo: (project) => {
+  displayTodo: (project) => {
     todoContainer.innerText = "";
 
-    for(let item of projects[project]){
-      // console.log(item)
+    for (let item of projects[project]) {
       const newDiv = document.createElement("div");
       const newInput = document.createElement("input");
       const newLabel = document.createElement("label");
 
       todoContainer.appendChild(newDiv);
-      newDiv.classList.add("drac-box", "drac-card", "drac-bg-purple", "drac-p-sm", "drac-my-sm");
+      newDiv.classList.add(
+        "drac-box",
+        "drac-card",
+        "drac-bg-purple",
+        "drac-p-sm",
+        "drac-my-sm"
+      );
       newDiv.appendChild(newInput);
       newDiv.appendChild(newLabel);
 
@@ -31,13 +36,18 @@ const DOM = {
 
       DOM.addPriority(item.priority, newDiv);
     }
-
-	},
+  },
   displayProjects: () => {
     projectsList.innerText = "";
-    for(let item in projects){
+    for (let item in projects) {
       const newProject = document.createElement("p");
-      newProject.classList.add("drac-box" ,"drac-card", "drac-bg-purple", "drac-my-sm", "drac-p-sm");
+      newProject.classList.add(
+        "drac-box",
+        "drac-card",
+        "drac-bg-purple",
+        "drac-my-sm",
+        "drac-p-sm"
+      );
       projectsList.appendChild(newProject);
 
       newProject.innerText = item;
@@ -47,42 +57,45 @@ const DOM = {
         currentProject = item;
         heading.innerText = item;
         DOM.displayTodo(currentProject);
-        
 
-        document.querySelectorAll("#project-item").forEach(project => {
-          if (project.innerText === item){
+        document.querySelectorAll("#project-item").forEach((project) => {
+          if (project.innerText === item) {
             project.classList.remove("drac-bg-purple");
             project.classList.add("drac-bg-cyan-green");
           } else {
             project.classList.remove("drac-bg-cyan-green");
             project.classList.add("drac-bg-purple");
           }
-        })
-        })
-
+        });
+      });
     }
   },
 
-  addPriority(priorityNumber, container){
+  addPriority(priorityNumber, container) {
+    if (priorityNumber === "default") return;
     const outerSpan = document.createElement("span");
     const innerSpan = document.createElement("span");
-    outerSpan.classList.add(
-      "drac-badge",
-      "drac-bg-cyan-transparent",
-      "drac-badge-subtle",
-      "drac-text-cyan"
-    )
+    outerSpan.classList.add("drac-badge", "drac-text-white");
 
-    innerSpan.classList.add(
-      "drac-text-cyan"
-    )
-    
+    if (priorityNumber === "1") {
+      outerSpan.classList.add("drac-bg-red");
+      innerSpan.classList.add("drac-text-white");
+    } else if (priorityNumber === "2") {
+      outerSpan.classList.add("drac-bg-orange");
+      innerSpan.classList.add("drac-text-white");
+    } else if (priorityNumber === "3") {
+      outerSpan.classList.add("drac-bg-yellow");
+      innerSpan.classList.add("drac-text-purple");
+    } else {
+      outerSpan.classList.add("drac-bg-cyan");
+      innerSpan.classList.add("drac-text-purple");
+    }
+
+
     container.appendChild(outerSpan);
-    outerSpan.appendChild(innerSpan); 
+    outerSpan.appendChild(innerSpan);
     innerSpan.innerText = `P ${priorityNumber}`;
+  },
+};
 
-  }
-  
-}
-
-export { DOM , currentProject};
+export { DOM, currentProject };

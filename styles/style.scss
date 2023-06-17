@@ -23,6 +23,16 @@ body{
   position: absolute;
   top: 0;
   left: 0;
+  overflow-y: scroll;
+  &::-webkit-scrollbar{
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb{
+    background: #bd93f9;
+    border-radius: 100vw;
+    width: 10px;
+  }
 }
 
 .container{
@@ -45,7 +55,7 @@ body{
 
 
 .todo-input-container{
-  position: absolute;
+  position: fixed;
   bottom: 50px;
   width: min(700px, 90%);
 
@@ -57,6 +67,25 @@ body{
 
 .error-message{
   display: none;
+}
+
+.todo-container{
+  overflow-y: scroll;
+  height: 68vh;
+  width: min(800px, 90vw);
+  padding-left: 60px;
+  padding-right: 60px;
+  margin-left: -50px;
+
+  &::-webkit-scrollbar{
+    background: transparent;
+    width: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb{
+    background: #282a36;
+    border-radius: 100vw;
+  }
 }
 
 .todo-container > div {
