@@ -1,5 +1,5 @@
 import { projects } from "./index";
-import deleteImg from "../images/delete_FILL0_wght400_GRAD0_opsz40.svg"
+import deleteImg from "../images/delete_FILL0_wght400_GRAD0_opsz40.svg";
 
 const todoContainer = document.querySelector("#todo-container");
 const projectsList = document.querySelector("#projects-list");
@@ -35,8 +35,10 @@ const DOM = {
       newLabel.for = item.title;
       newLabel.innerText = item.title;
 
+      const id = projects[currentProject].indexOf(item);
+
       DOM.addPriority(item.priority, newDiv);
-      DOM.addDeleteButton(newDiv);
+      DOM.addDeleteButton(newDiv, id);
     }
   },
   displayProjects: () => {
@@ -90,10 +92,7 @@ const DOM = {
     } else if (priorityNumber == "default") {
       outerSpan.classList.add("drac-bg-purple");
       innerSpan.classList.add("drac-text-purple");
-    }
-
-
-    else {
+    } else {
       outerSpan.classList.add("drac-bg-cyan");
       innerSpan.classList.add("drac-text-purple");
     }
@@ -103,15 +102,24 @@ const DOM = {
     innerSpan.innerText = `P ${priorityNumber}`;
   },
 
-  addDeleteButton(container){
+  addDeleteButton(container, id) {
     const deleteImage = document.createElement("img");
     deleteImage.src = deleteImg;
     container.appendChild(deleteImage);
 
     deleteImage.addEventListener("click", () => {
       todoContainer.removeChild(container);
-    })
-  }
+
+      for (let i in projects[currentProject]) {
+        let lastElement = projects[currentProject].length - 1;
+        if (i == lastElement) {
+          projects[currentProject].pop();
+        } else if (i == id) {
+          projects[currentProject].splice(i, 1);
+        }
+      }
+    });
+  },
 };
 
 export { DOM, currentProject };
