@@ -1,6 +1,6 @@
 # Todo App
 
-[Live Demo](https://devansh-baghel.github.io/todo/).
+[Live Demo](https://baghel-todo.vercel.app).
 
 This is my submission for [TOP's Todo Project](https://www.theodinproject.com/lessons/node-path-javascript-todo-list).
 
