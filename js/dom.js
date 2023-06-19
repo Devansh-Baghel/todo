@@ -120,6 +120,39 @@ const DOM = {
       }
     });
   },
+
+  displayAllTodo(){
+    todoContainer.innerText = "";
+    heading.innerText = "All Projects"
+    Object.values(projects).forEach(item => {
+      for (let i in item){
+        let title = item[i].title;
+
+        const newDiv = document.createElement("div");
+        const newInput = document.createElement("input");
+        const newLabel = document.createElement("label");
+
+        todoContainer.appendChild(newDiv);
+        newDiv.classList.add(
+          "drac-box",
+          "drac-card",
+          "drac-bg-purple",
+          "drac-p-sm",
+          "drac-my-sm"
+        );
+        newDiv.appendChild(newInput);
+        newDiv.appendChild(newLabel);
+
+        newInput.type = "checkbox";
+        newInput.classList.add("drac-checkbox", "drac-checkbox-green");
+        newLabel.classList.add("drac-text", "drac-text-white", "drac-pl-sm");
+        newInput.id = title;
+        newLabel.for = title;
+        newLabel.innerText = title;
+      }
+    })
+
+  }
 };
 
 export { DOM, currentProject };
